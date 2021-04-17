@@ -18,6 +18,6 @@ public class ErrorService {
      */
     public Error getLastError() {
         return errorRepository.findFirstByOrderByCreatedDesc()
-                .orElseThrow(() -> new IllegalStateException("Невозможно получить последнюю ошибку"));
+                .orElseThrow(() -> new IllegalStateException("Последняя ошибка не найдена"));
     }
 }
