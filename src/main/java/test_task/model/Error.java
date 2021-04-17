@@ -15,8 +15,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import java.time.LocalDateTime;
 
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Entity
@@ -32,4 +32,9 @@ public class Error {
 
     @Column(columnDefinition = "TIMESTAMP WITH TIME ZONE")
     private LocalDateTime created;
+
+    public Error(String message, LocalDateTime created) {
+        this.message = message;
+        this.created = created;
+    }
 }
