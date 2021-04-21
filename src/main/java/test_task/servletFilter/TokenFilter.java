@@ -20,8 +20,6 @@ import java.io.IOException;
 @Component
 public class TokenFilter implements Filter {
 
-    private final String EXIT_PATH_PATTERN = "^/exit.*$";
-
     @Value("${token}")
     private String token;
 
@@ -35,7 +33,7 @@ public class TokenFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String path = request.getRequestURI();
 
-        if (pathNeedToSecure(path)) { // если путь отличается от /exit*
+        if (pathNeedToSecure(path)) { // если путь отличается от /exit* или */swagger-ui.html
             if (!tokenIsValid(request)) {   // если токен введен неправильно
                 sendError(response);
                 return;
@@ -45,12 +43,12 @@ public class TokenFilter implements Filter {
     }
 
     /**
-     * Метод проверки пети запросов.
+     * Метод проверки путей запросов.
      * @param path строковое представление пути запроса
-     * @return true, если путь отличается от пути "/exit*". false, если путь является "/exit*"
+     * @return true, если путь запроса начинается с "/exit" или "/profiles". false, если не содержит эти префиксы
      */
     private boolean pathNeedToSecure(String path) {
-        return !path.matches(EXIT_PATH_PATTERN);
+        return path.startsWith("/profiles") | path.startsWith("/error");
     }
 
     /**

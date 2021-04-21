@@ -14,7 +14,7 @@
         <spring.version>2.3.2.RELEASE</spring.version>
         <postgres.version>42.2.19</postgres.version>
         <flywaydb.version>5.2.4</flywaydb.version>
-        <swagger.version>3.0.0</swagger.version>
+        <swagger.version>2.9.2</swagger.version>
         <jjwt.version>0.9.1</jjwt.version>
         <lombok.version>1.18.20</lombok.version>
     </properties>

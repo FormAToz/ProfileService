@@ -25,3 +25,6 @@ spring:
 
 # Secret access token
 token: ${SECRET_TOKEN}
+
+# Swagger application page
+swagger-page: swagger-ui.html
