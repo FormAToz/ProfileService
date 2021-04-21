@@ -6,7 +6,7 @@ spring:
     generate-ddl: false
     show-sql: false
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     properties:
       hibernate:
         jdbc:
@@ -21,7 +21,8 @@ spring:
     password: ${DB_PASSWORD}
 
   flyway:
-    enabled: false
+    enabled: true
+    baselineOnMigrate: true
 
 # Secret access token
 token: ${SECRET_TOKEN}

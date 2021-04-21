@@ -33,7 +33,7 @@ public class TokenFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String path = request.getRequestURI();
 
-        if (pathNeedToSecure(path)) { // если путь отличается от /exit* или */swagger-ui.html
+        if (pathNeedToSecure(path)) { // если путь содержит префикс "/exit" или "/profiles"
             if (!tokenIsValid(request)) {   // если токен введен неправильно
                 sendError(response);
                 return;
