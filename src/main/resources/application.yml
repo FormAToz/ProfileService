@@ -22,3 +22,6 @@ spring:
 
   flyway:
     enabled: false
+
+# Secret access token
+token: ${SECRET_TOKEN}
